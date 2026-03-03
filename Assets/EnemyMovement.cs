@@ -1,35 +1,36 @@
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
     public float moveSpeed = 2f;
-    Rigidbody2D rb;
-    Transform target;
+    Transform player;
     Vector2 moveDirection;
+    private Rigidbody2D rb;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        target = GameObject.Find("Player").transform;
+         player = GameObject.Find("Player").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(target)
+    {
+        if(player)
         {
-            Vector3 direction = (target.position - transform.position).normalized;
+            Vector3 direction = (player.position - player.position).normalized;
             moveDirection = direction;
-
         }
     }
-    private void FixedUpdate()
+}
+private void FixedUpdate()
     {
-        if(target)
+        if(player)
         {
             rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
         }
