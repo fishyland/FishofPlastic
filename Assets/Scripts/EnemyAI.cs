@@ -7,6 +7,8 @@ public class EnemyAI : MonoBehaviour
     Transform target;
     Vector2 moveDirection;
 
+    float health, maxHealth = 3f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
@@ -15,6 +17,7 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         target = GameObject.Find("Player").transform;
+        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -32,6 +35,15 @@ public class EnemyAI : MonoBehaviour
         if(target)
         {
             rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
+        }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -=damage;
+        if(health <=0)
+        {
+            Destroy(gameObject);
         }
     }
 }
