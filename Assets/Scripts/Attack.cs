@@ -9,7 +9,6 @@ public class Attack : MonoBehaviour
     void Update()
     {
         CheckMeleeTimer();
-
        if(Input.GetKeyDown(KeyCode.E) || Input.GetMouseButton(0));
         {
            OnAttack();

@@ -7,7 +7,7 @@ public class EnemyAI : MonoBehaviour
     Transform target;
     Vector2 moveDirection;
 
-    float health, maxHealth = 3f;
+    public float health, maxHealth = 10f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()

@@ -7,7 +7,7 @@ public class Weapon : MonoBehaviour
    
    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Enemy enemy = collision.GetComponent<Enemy>();
+        EnemyAI enemy = collision.GetComponent<EnemyAI>();
         if(enemy != null)
         {
             enemy.TakeDamage(damage);

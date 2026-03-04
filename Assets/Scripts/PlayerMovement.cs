@@ -40,25 +40,34 @@ public class PlayerMovement : MonoBehaviour
     {
         if(isWalking)
         {
-        Vector3 vector3 = Vector3.left * moveInput.x * Vector3.down * moveInput.y;
+        Vector3 vector3 = Vector3.left * moveInput.x + Vector3.down * moveInput.y;
         Aim.rotation = Quaternion.LookRotation(Vector3.forward, vector3);
         }
     }
 
     public void Move(InputAction.CallbackContext context)
     {
+
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveY = Input.GetAxisRaw("Vertical");
+
+
         animator.SetBool("isWalking", true);
 
-        if(context.canceled)
+        if((moveX == 0 && moveY == 0) && (moveInput.x != 0 || moveInput.y !=0))
         {
             animator.SetBool("isWalking", false);
+            lastMoveDirection = moveInput;
             animator.SetFloat("LastInputX", moveInput.x);
             animator.SetFloat("LastInputY", moveInput.y);
-            lastMoveDirection = moveInput;
+            
 
-        Vector3 vector3 = Vector3.left * lastMoveDirection.x * Vector3.down * lastMoveDirection.y;
+        Vector3 vector3 = Vector3.left * lastMoveDirection.x + Vector3.down * lastMoveDirection.y;
         Aim.rotation = Quaternion.LookRotation(Vector3.forward, vector3);
     
+        } else if (moveX != 0 || moveY != 0)
+        {
+            isWalking = true;
         }
         moveInput = context.ReadValue<Vector2>();
         animator.SetFloat("InputX",moveInput.x);
