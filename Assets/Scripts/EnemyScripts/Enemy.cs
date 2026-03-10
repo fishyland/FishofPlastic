@@ -2,11 +2,17 @@ using UnityEngine;
 
 public class Enemy: MonoBehaviour
 {
-   
+    //Variables
+    public int FacingDirection{get; private set;} = 1; //when setting in scale to 1, will face right, -1, left
+
+
+   //Components
     public Rigidbody2D RB {get; private set;}
     public StateMachine StateMachine{get; private set;}
     public EnemyConfig Config;
     public EnemySenses Senses {get; private set;}
+    public Animator Animator {get; private set;}
+    private Vector2 direction;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -15,6 +21,7 @@ public class Enemy: MonoBehaviour
         RB = GetComponent<Rigidbody2D>();
         StateMachine = new StateMachine();
         Senses = GetComponent<EnemySenses>();
+        Animator = GetComponent<Animator>();
     }
 
     public void Start()
@@ -29,5 +36,19 @@ public class Enemy: MonoBehaviour
     private void FixedUpdate()
     {
         StateMachine.CurrentState?.FixedUpdate();
+    }
+    public void Flip()
+    {
+
+       /* if(direction != Vector2.zero)
+        {
+            animator.SetFloat("XInput", direction.x);
+            animator.SetFloat("YInput", direction.y);
+        } */
+        FacingDirection *= -1;
+
+        Vector3 scale = transform.localScale;
+        scale.x = FacingDirection;
+        transform.localScale = scale;
     }
 }

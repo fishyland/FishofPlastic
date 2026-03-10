@@ -2,16 +2,16 @@ using UnityEngine;
 
 public class PatrolState : State
 {
-  
+  protected override string AnimBoolName => "isWalking";
   public PatrolState(Enemy enemy) : base(enemy) {}
 
   public override void FixedUpdate()
     {
-        if(senses.IsAtWall() || senses.IsAtEdge())
+        if(senses.IsAtWall())
         {
-            Debug.Log("I found a wall");
+            enemy.Flip();
             return; 
         }
-      rb.linearVelocity = new Vector2(config.patrolSpeed, rb.linearVelocity.y);
+      rb.linearVelocity = new Vector2(config.patrolSpeed * enemy.FacingDirection, rb.linearVelocity.y);
     }
 }
