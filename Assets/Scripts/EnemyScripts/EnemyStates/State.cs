@@ -7,6 +7,7 @@ protected Animator animator;
 protected virtual string AnimBoolName => null;
 protected EnemyConfig config;
 protected EnemySenses senses;
+protected StateMachine stateMachine;
 protected Enemy enemy;
 
 protected State(Enemy enemy)//not accessible to other classes, gets called each time we create new class
@@ -15,6 +16,7 @@ protected State(Enemy enemy)//not accessible to other classes, gets called each 
         animator = enemy.Animator;
         config = enemy.Config;
         senses = enemy.Senses;
+        stateMachine = enemy.StateMachine;
         this.enemy = enemy;
     }
 

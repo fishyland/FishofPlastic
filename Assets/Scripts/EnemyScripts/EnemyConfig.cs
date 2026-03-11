@@ -4,13 +4,24 @@ using UnityEngine;
 
 public class EnemyConfig : ScriptableObject //data container script
 {
-    [Header("Movement")]
+    [Header("General")]
+    public float turnThreshold = .2f;
 
-    public float patrolSpeed = 5;
+  
 
     [Header("Patrol")]
+      public float patrolSpeed = 5;
     public float groundCheckDistance = .7f;
      public float wallCheckDistance = .5f;
     public LayerMask groundLayer;
     public LayerMask wallLayer;
+
+    [Header("Chase")]
+    public float chaseSpeed = 5;
+    public float chaseRange = 5;
+    public LayerMask targetLayer;
+
+    [Header("Attack")]
+    public float meleeRange = 1.2f;
+
 }

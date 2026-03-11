@@ -9,5 +9,14 @@ public class StateMachine //doesnt actually exist in our scene, doesnt need mono
         CurrentState = startingState;
         CurrentState.Enter();
     }
+
+
+    public void ChangeState(State newState)
+    {
+        CurrentState.Exit();
+        CurrentState = newState;
+        CurrentState.Enter();
+    }
+
 }
 

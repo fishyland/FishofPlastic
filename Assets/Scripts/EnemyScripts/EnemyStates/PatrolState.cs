@@ -7,6 +7,11 @@ public class PatrolState : State
 
   public override void FixedUpdate()
     {
+      if(senses.GetChaseTarget())
+    {
+     stateMachine.ChangeState(new ChaseState(enemy));
+      return;
+    }
         if(senses.IsAtWall())
         {
             enemy.Flip();
