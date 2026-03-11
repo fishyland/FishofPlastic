@@ -862,9 +862,10 @@ GameObject:
   - component: {fileID: 980101346}
   - component: {fileID: 980101344}
   - component: {fileID: 980101348}
+  - component: {fileID: 980101351}
+  - component: {fileID: 980101352}
   - component: {fileID: 980101350}
   - component: {fileID: 980101349}
-  - component: {fileID: 980101351}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
@@ -1067,6 +1068,19 @@ MonoBehaviour:
   enemy: {fileID: 980101348}
   config: {fileID: 11400000, guid: dae53abd9cdf5e84faf976f567683c6a, type: 2}
   wallCheck: {fileID: 233321863}
+  attackPoint: {fileID: 1562376691}
+--- !u!114 &980101352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980101342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526e249e3331bd247b4539a201d0d43b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   attackPoint: {fileID: 1562376691}
 --- !u!1 &1189574752
 GameObject:
@@ -2751,7 +2765,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1226233157
 Transform:
   m_ObjectHideFlags: 0
@@ -2784,7 +2798,6 @@ GameObject:
   - component: {fileID: 1247195604}
   - component: {fileID: 1247195603}
   - component: {fileID: 1247195602}
-  - component: {fileID: 1247195610}
   - component: {fileID: 1247195611}
   m_Layer: 9
   m_Name: Player
@@ -3075,19 +3088,6 @@ Transform:
   - {fileID: 1226233157}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1247195610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1247195600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38f03d569a855ae489d98769cec96607, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Melee: {fileID: 1810825392}
 --- !u!114 &1247195611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3103,8 +3103,8 @@ MonoBehaviour:
   maxHealth: 100
   invulnerabilityDuration: 1
   blinkInterval: 0.1
-  currentHealth: 0
-  invulnerabilityTimer: 0
+  currentHealth: 100
+  invulnerabilityTimer: 0.1
 --- !u!1 &1354510205
 GameObject:
   m_ObjectHideFlags: 0

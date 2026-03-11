@@ -7,8 +7,6 @@ public class EnemyConfig : ScriptableObject //data container script
     [Header("General")]
     public float turnThreshold = .2f;
 
-  
-
     [Header("Patrol")]
       public float patrolSpeed = 5;
     public float groundCheckDistance = .7f;
@@ -23,5 +21,6 @@ public class EnemyConfig : ScriptableObject //data container script
 
     [Header("Attack")]
     public float meleeRange = 1.2f;
+    public float meleeDamage = 2f;
 
 }

@@ -8,17 +8,25 @@ public class PlayerHealth : MonoBehaviour, IDamageable
    [SerializeField] float invulnerabilityDuration = 1f;
    [SerializeField] float  blinkInterval = 0.1f;
 
+    /*private EnemyConfig config;
+    private Enemy enemy;*/
     public float currentHealth;
     public float invulnerabilityTimer;
     private SpriteRenderer sprite;
     private float blinkTimer;
     private bool blinking;
 
+    /*private void Start()
+    {
+        enemy = GetComponent<Enemy>();
+        config = enemy.Config;
+    } */
 
     void Awake()
     {
         currentHealth = maxHealth;
         sprite = GetComponent<SpriteRenderer>();
+      
     }
 
     void Update()
@@ -29,12 +37,12 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             HandleBlink();
         }
     }
-    public bool ApplyDamage(float amount)
+    public bool ApplyDamage(float meleeDamage)
     {
         if(currentHealth <=0f || invulnerabilityTimer > 0f)
         return false;
 
-        currentHealth -= amount;
+        currentHealth -= meleeDamage;
 
         if(currentHealth <= 0f)
         {
