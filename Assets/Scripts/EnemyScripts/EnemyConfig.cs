@@ -11,7 +11,6 @@ public class EnemyConfig : ScriptableObject //data container script
       public float patrolSpeed = 5;
     public float groundCheckDistance = .7f;
      public float wallCheckDistance = .5f;
-    public LayerMask groundLayer;
     public LayerMask wallLayer;
 
     [Header("Chase")]
@@ -22,10 +21,14 @@ public class EnemyConfig : ScriptableObject //data container script
     [Header("Attack")]
     public float meleeRange = 1.2f;
     public float meleeDamage = 2f;
-
     public float meleeCooldown = 3;
 
+  
+  [Header("Health")]
+  public float health = 10f;
+  public float maxHealth = 10f;
+
     [Header("Damaged")]
-    public float  knockbackDuration = .2f;
+    public float knockbackDuration = .2f;
     public float knockbackForce = 30;
 }

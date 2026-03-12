@@ -14,8 +14,9 @@ public class Enemy: MonoBehaviour
     public EnemyCombat Combat {get; private set;}
     public Animator Animator {get; private set;}
     private Vector2 direction;
-    public Health health;
+    //public Health health;
     public Animator anim;
+    
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -30,6 +31,7 @@ public class Enemy: MonoBehaviour
 
     public void Start()
     {
+        Config.health = Config.maxHealth;
        StateMachine.Initialize(new PatrolState(this)); 
     }
     // Update is called once per frame
@@ -65,19 +67,13 @@ public class Enemy: MonoBehaviour
         transform.localScale = scale;
     }
 
-    private void OnEnable()
+    public void TakeDamage(float damage)
     {
-        health.OnDamaged += HandleDamage;
-    }
-
-    private void OnDisable()
-    {
-        health.OnDamaged -= HandleDamage;
-    }
-
-    void HandleDamage()
-    {
-        anim.SetTrigger("isDamaged");
+        Config.health -= damage;
+        if(Config.health <=0)
+        {
+            Destroy(gameObject);
+        }
     }
 
 }
