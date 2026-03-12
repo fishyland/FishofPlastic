@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 public class Attack : MonoBehaviour
 {
     public GameObject Melee;
@@ -9,7 +10,7 @@ public class Attack : MonoBehaviour
     void Update()
     {
         CheckMeleeTimer();
-       if(Input.GetKeyDown(KeyCode.E) || Input.GetMouseButton(0));
+       if(Input.GetKeyDown(KeyCode.R) || Input.GetMouseButton(0));
         {
            OnAttack();
         } 
@@ -18,6 +19,7 @@ public class Attack : MonoBehaviour
 
     void OnAttack()
     {
+        Debug.Log("I am attacking");
         Melee.SetActive(true);
         isAttacking = true;
         //call animator to play melee attack

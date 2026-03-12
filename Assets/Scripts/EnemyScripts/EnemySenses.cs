@@ -20,7 +20,7 @@ public bool IsAtWall()
 
         return hit.transform;
     }
-    public bool IsInMeLeeRange(Transform target)
+    public bool IsInMeleeRange(Transform target)
     {
         if(!target)
         return false;

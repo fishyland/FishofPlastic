@@ -1,0 +1,34 @@
+using UnityEngine;
+using System;
+
+public class Health : MonoBehaviour
+{
+    public event Action<Vector2> OnDamaged;
+    public event Action OnDeath;
+    
+    public int health;
+    public int maxHealth;
+
+
+    private void Start()
+    {
+        health = maxHealth;
+    }
+
+
+    public void ChangeHealth (int amount, Vector2 sourcePosition)
+    {
+        health += amount;
+
+        if(health > maxHealth)
+            health = maxHealth;
+        
+        else if (health <= 0)
+            OnDeath?.Invoke(); //? means only invokes if something is listening
+
+        else if (amount < 0)
+            OnDamaged?.Invoke(sourcePosition);
+    }
+
+
+}

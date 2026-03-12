@@ -23,4 +23,9 @@ public class EnemyConfig : ScriptableObject //data container script
     public float meleeRange = 1.2f;
     public float meleeDamage = 2f;
 
+    public float meleeCooldown = 3;
+
+    [Header("Damaged")]
+    public float  knockbackDuration = .2f;
+    public float knockbackForce = 30;
 }

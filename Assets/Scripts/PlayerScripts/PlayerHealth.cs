@@ -2,21 +2,22 @@ using UnityEngine;
 using UnityEngine.UI;
 [RequireComponent(typeof(SpriteRenderer))]
 
-public class PlayerHealth : MonoBehaviour, IDamageable
+public class PlayerHealth : MonoBehaviour
 {
+    
    [SerializeField] float maxHealth = 100f;
    [SerializeField] float invulnerabilityDuration = 1f;
    [SerializeField] float  blinkInterval = 0.1f;
 
     /*private EnemyConfig config;
-    private Enemy enemy;*/
+    private Enemy enemy; */
     public float currentHealth;
     public float invulnerabilityTimer;
     private SpriteRenderer sprite;
     private float blinkTimer;
     private bool blinking;
 
-    /*private void Start()
+   /* private void Start()
     {
         enemy = GetComponent<Enemy>();
         config = enemy.Config;
@@ -37,14 +38,17 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             HandleBlink();
         }
     }
-    public bool ApplyDamage(float meleeDamage)
+    public bool ApplyDamage(float amount)
     {
         if(currentHealth <=0f || invulnerabilityTimer > 0f)
         return false;
 
-        currentHealth -= meleeDamage;
+        currentHealth += amount;
 
-        if(currentHealth <= 0f)
+        if(currentHealth > maxHealth)
+        maxHealth = maxHealth;
+
+       else if(currentHealth <= 0f)
         {
             Die();
             return true;

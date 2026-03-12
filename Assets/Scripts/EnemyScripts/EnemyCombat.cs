@@ -6,21 +6,30 @@ public class EnemyCombat : MonoBehaviour
 
     private EnemyConfig config;
     private Enemy enemy;
+    //private PlayerHealth currentHealth;
+    private float lastAttackTime;
 
 private void Start()
     {
         enemy = GetComponent<Enemy>();
         config = enemy.Config;
+       // currentHealth = GetComponent<PlayerHealth>();
     }
+
+    public bool CanMeleeAttack() => Time.time >= lastAttackTime + config.meleeCooldown;
 
 public void PerformMeleeAttack()
     {
+        lastAttackTime = Time.time;
+
         Collider2D hit = Physics2D.OverlapCircle(attackPoint.position, config.meleeRange,config.targetLayer);
         if(!hit)
         return;
-        PlayerHealth health = GetComponent<PlayerHealth>();
-        if(health != null)
-        health.ApplyDamage(config.meleeDamage);
+
+        PlayerHealth currentHealth = hit.GetComponent<PlayerHealth>();
+
+        if(currentHealth != null)
+        currentHealth.ApplyDamage(-config.meleeDamage);
     }
 
 }

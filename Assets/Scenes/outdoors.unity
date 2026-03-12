@@ -864,6 +864,7 @@ GameObject:
   - component: {fileID: 980101348}
   - component: {fileID: 980101351}
   - component: {fileID: 980101352}
+  - component: {fileID: 980101353}
   - component: {fileID: 980101350}
   - component: {fileID: 980101349}
   m_Layer: 8
@@ -985,6 +986,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Config: {fileID: 11400000, guid: dae53abd9cdf5e84faf976f567683c6a, type: 2}
+  health: {fileID: 980101353}
+  anim: {fileID: 980101350}
 --- !u!61 &980101349
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1082,6 +1085,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 1562376691}
+--- !u!114 &980101353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980101342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5803d75b243466d41a823fd58381a76e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 0
 --- !u!1 &1189574752
 GameObject:
   m_ObjectHideFlags: 0
@@ -2765,7 +2782,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1226233157
 Transform:
   m_ObjectHideFlags: 0
@@ -2794,11 +2811,11 @@ GameObject:
   - component: {fileID: 1247195608}
   - component: {fileID: 1247195607}
   - component: {fileID: 1247195606}
+  - component: {fileID: 1247195611}
   - component: {fileID: 1247195605}
   - component: {fileID: 1247195604}
   - component: {fileID: 1247195603}
   - component: {fileID: 1247195602}
-  - component: {fileID: 1247195611}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -3100,10 +3117,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e43024541171844a879b3773c720d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 24
   invulnerabilityDuration: 1
   blinkInterval: 0.1
-  currentHealth: 100
+  currentHealth: 24
   invulnerabilityTimer: 0.1
 --- !u!1 &1354510205
 GameObject:
@@ -27094,9 +27111,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1810825392}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a91bdea3ccee84408d6adbe91178917, type: 3}
+  m_Script: {fileID: 11500000, guid: 38f03d569a855ae489d98769cec96607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Melee: {fileID: 1810825392}
 --- !u!1 &1888399331
 GameObject:
   m_ObjectHideFlags: 0

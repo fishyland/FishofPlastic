@@ -11,8 +11,11 @@ public class Enemy: MonoBehaviour
     public StateMachine StateMachine{get; private set;}
     public EnemyConfig Config;
     public EnemySenses Senses {get; private set;}
+    public EnemyCombat Combat {get; private set;}
     public Animator Animator {get; private set;}
     private Vector2 direction;
+    public Health health;
+    public Animator anim;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,6 +24,7 @@ public class Enemy: MonoBehaviour
         RB = GetComponent<Rigidbody2D>();
         StateMachine = new StateMachine();
         Senses = GetComponent<EnemySenses>();
+        Combat = GetComponent<EnemyCombat>();
         Animator = GetComponent<Animator>();
     }
 
@@ -60,4 +64,22 @@ public class Enemy: MonoBehaviour
         scale.x = FacingDirection;
         transform.localScale = scale;
     }
+
+    private void OnEnable()
+    {
+        health.OnDamaged += HandleDamage;
+    }
+
+    private void OnDisable()
+    {
+        health.OnDamaged -= HandleDamage;
+    }
+
+    void HandleDamage()
+    {
+        anim.SetTrigger("isDamaged");
+    }
+
 }
+
+

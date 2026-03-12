@@ -28,3 +28,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   meleeRange: 1.2
+  meleeDamage: 4
