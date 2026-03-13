@@ -701,7 +701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb39002308f12fa49b474c38b1d1a28c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneBuildIndex: 1
+  sceneBuildIndex: 2
 --- !u!61 &186325499
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3690,8 +3690,8 @@ MonoBehaviour:
   musicSource: {fileID: 415418134}
   sfxSource: {fileID: 415418133}
   backgroundMusic: {fileID: 8300000, guid: c5f222f0049953a4883844e9f0621340, type: 3}
-  jumpSFX: {fileID: 0}
-  collectibleSFX: {fileID: 0}
+  kickSFX: {fileID: 0}
+  damageSFX: {fileID: 0}
 --- !u!82 &415418133
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11432,7 +11432,6 @@ GameObject:
   - component: {fileID: 1082570480}
   - component: {fileID: 1082570481}
   - component: {fileID: 1082570482}
-  - component: {fileID: 1082570483}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -11453,7 +11452,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
-  Aim: {fileID: 0}
+  attackPressed: 0
+  Player: {fileID: 0}
+  damage: 0
+  attackRadius: 0.5
+  attackPoint: {fileID: 0}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &1082570476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11721,18 +11727,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1082570474}
   m_Enabled: 1
---- !u!114 &1082570483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1082570474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcbb7ef42e1512b48a704efa22673920, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1193823320
 GameObject:
   m_ObjectHideFlags: 0

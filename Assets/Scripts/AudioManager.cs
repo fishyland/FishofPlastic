@@ -7,11 +7,14 @@ public class AudioManager : MonoBehaviour
     [Header("Audio Sources")]
     public AudioSource musicSource;
     public AudioSource sfxSource;
+    public AudioSource audioSource;
+    
     
     [Header("AudioClips")]
     public AudioClip backgroundMusic;
-    public AudioClip jumpSFX;
-    public AudioClip collectibleSFX;
+    public AudioClip kickSFX;
+    public AudioClip damageSFX;
+    public AudioClip bossMusic, defaultMusic;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -30,6 +33,9 @@ public class AudioManager : MonoBehaviour
     
    private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        defaultMusic = audioSource.clip;
+
         if (backgroundMusic != null && musicSource != null)
         {
             musicSource.clip = backgroundMusic;
@@ -53,5 +59,25 @@ public class AudioManager : MonoBehaviour
             musicSource.Play();
         }
     }
+
+     private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            audioSource.clip = bossMusic;
+            audioSource.Play();
+        }
+    }
+    
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+          if(collision.gameObject.tag == "Player")
+        {
+            audioSource.clip = defaultMusic;
+            audioSource.Play();
+        }
+    }
+    
+
 }
 
