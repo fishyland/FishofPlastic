@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private float horizInput;
     private bool isWalking;
     public bool attackPressed;
+    public GameObject Player;
 
     [Header ("Attack Settings")]
     public int damage;
@@ -81,13 +82,11 @@ public class PlayerMovement : MonoBehaviour
             Collider2D enemy = Physics2D.OverlapCircle(attackPoint.position,attackRadius,enemyLayer);
 
             if(enemy != null)
-                enemy.gameObject.GetComponent<Health>().ChangeHealth(-damage);
-        
+                enemy.gameObject.GetComponent<Health>().ChangeHealth(-damage, transform.position);
             animator.Play("Fishfight");
         }
-    
-
-      
     }
+      
+    
 }
 

@@ -15,7 +15,6 @@ public class Enemy: MonoBehaviour
     public Animator Animator {get; private set;}
     private Vector2 direction;
     //public Health health;
-    public Animator anim;
     
 
 
@@ -67,22 +66,7 @@ public class Enemy: MonoBehaviour
         transform.localScale = scale;
     }
 
-    private void OnEnable()
-    {
-        health.OnDamaged += HandleDamage;
-    }
-
-
-    private void OnDisable()
-    {
-        health.OnDamaged -= HandleDamage;
-    }
-
-    void HandleDamage()
-    {
-        anim.SetTrigger("isDamaged");
-    }
-
+ 
 }
 
 

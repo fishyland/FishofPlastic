@@ -16,9 +16,6 @@ MonoBehaviour:
   patrolSpeed: 2
   groundCheckDistance: 0.7
   wallCheckDistance: 0.5
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
   wallLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -29,3 +26,8 @@ MonoBehaviour:
     m_Bits: 512
   meleeRange: 1.2
   meleeDamage: 4
+  meleeCooldown: 3
+  health: 50
+  maxHealth: 50
+  knockbackDuration: 0.2
+  knockbackForce: 20
