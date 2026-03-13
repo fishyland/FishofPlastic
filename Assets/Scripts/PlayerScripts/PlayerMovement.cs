@@ -2,20 +2,30 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
+    
     [SerializeField] private float moveSpeed = 5f;
+    //public PlayerAttackState attackState;
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private Vector2 lastMoveDirection;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private float horizInput;
+    private bool isWalking;
+    public bool attackPressed;
 
-    public Transform Aim;
-    bool isWalking = false;
-    
-
+    [Header ("Attack Settings")]
+    public int damage;
+    public float attackRadius = .5f;
+    public Transform attackPoint;
+    public LayerMask enemyLayer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+   // private void Awake()
+   // {
+        //attackState = new PlayerAttackState(this);
+   // }
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -34,15 +44,8 @@ public class PlayerMovement : MonoBehaviour
             if (horizInput > 0.1f) spriteRenderer.flipX = false;
             else if (horizInput < -0.1f) spriteRenderer.flipX = true;
         }
+        OnAttack();
 
-    }
-    private void FixedUpdate()
-    {
-        if(isWalking)
-        {
-        Vector3 vector3 = Vector3.left * moveInput.x + Vector3.down * moveInput.y;
-        Aim.rotation = Quaternion.LookRotation(Vector3.forward, vector3);
-        }
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -57,13 +60,9 @@ public class PlayerMovement : MonoBehaviour
         if((moveX == 0 && moveY == 0) && (moveInput.x != 0 || moveInput.y !=0))
         {
             animator.SetBool("isWalking", false);
-            lastMoveDirection = moveInput;
             animator.SetFloat("LastInputX", moveInput.x);
             animator.SetFloat("LastInputY", moveInput.y);
-            
-
-        Vector3 vector3 = Vector3.left * lastMoveDirection.x + Vector3.down * lastMoveDirection.y;
-        Aim.rotation = Quaternion.LookRotation(Vector3.forward, vector3);
+        
     
         } else if (moveX != 0 || moveY != 0)
         {
@@ -72,6 +71,23 @@ public class PlayerMovement : MonoBehaviour
         moveInput = context.ReadValue<Vector2>();
         animator.SetFloat("InputX",moveInput.x);
         animator.SetFloat("InputY",moveInput.y);
+    }
+
+    public void OnAttack()
+    {
+        attackPressed = true;
+        if(Input.GetKeyDown(KeyCode.R) || Input.GetMouseButton(0))
+        {
+            Collider2D enemy = Physics2D.OverlapCircle(attackPoint.position,attackRadius,enemyLayer);
+
+            if(enemy != null)
+                enemy.gameObject.GetComponent<Health>().ChangeHealth(-damage);
+        
+            animator.Play("Fishfight");
+        }
+    
+
+      
     }
 }
 

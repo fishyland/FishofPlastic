@@ -4,7 +4,7 @@ public class Enemy: MonoBehaviour
 {
     //Variables
     public int FacingDirection{get; private set;} = 1; //when setting in scale to 1, will face right, -1, left
-
+    public Health health;
 
    //Components
     public Rigidbody2D RB {get; private set;}
@@ -67,13 +67,20 @@ public class Enemy: MonoBehaviour
         transform.localScale = scale;
     }
 
-    public void TakeDamage(float damage)
+    private void OnEnable()
     {
-        Config.health -= damage;
-        if(Config.health <=0)
-        {
-            Destroy(gameObject);
-        }
+        health.OnDamaged += HandleDamage;
+    }
+
+
+    private void OnDisable()
+    {
+        health.OnDamaged -= HandleDamage;
+    }
+
+    void HandleDamage()
+    {
+        anim.SetTrigger("isDamaged");
     }
 
 }
