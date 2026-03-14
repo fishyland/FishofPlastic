@@ -25,9 +25,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   meleeRange: 1.2
-  meleeDamage: 4
+  meleeDamage: 1
   meleeCooldown: 3
-  health: 50
-  maxHealth: 50
+  health: 12
+  maxHealth: 12
   knockbackDuration: 0.2
   knockbackForce: 20

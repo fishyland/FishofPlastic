@@ -5,10 +5,14 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     
-   [SerializeField] float maxHealth = 100f;
+   public static float maxHealth = 3f;
    [SerializeField] float invulnerabilityDuration = 1f;
    [SerializeField] float  blinkInterval = 0.1f;
 
+    public Image[]hearts;
+    public Sprite fullHeart;
+    public Sprite emptyHeart;
+    public Vector3 respawnPoint;
     /*private EnemyConfig config;
     private Enemy enemy; */
     public float currentHealth;
@@ -27,8 +31,8 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
         sprite = GetComponent<SpriteRenderer>();
-      
     }
+
 
     void Update()
     {
@@ -36,6 +40,15 @@ public class PlayerHealth : MonoBehaviour
         {
             invulnerabilityTimer-=Time.deltaTime;
             HandleBlink();
+        }
+
+        foreach (Image img in hearts)
+        {
+            img.sprite = emptyHeart;
+        }
+        for (int i = 0; i < currentHealth; i++)
+        {
+            hearts[i].sprite = fullHeart;
         }
     }
     public bool ApplyDamage(float amount)
@@ -75,9 +88,10 @@ public class PlayerHealth : MonoBehaviour
         sprite.enabled =
         Mathf.FloorToInt(blinkTimer/blinkInterval) % 2 == 0;
     }
+
     void Die()
     {
-        gameObject.SetActive(false);
+        transform.position = respawnPoint;
     }
     
 }
