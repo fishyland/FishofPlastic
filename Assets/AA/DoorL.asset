@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: DoorL
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: 6983421395863478911, guid: c6a1784501a212e40a1f17228a679cfc, type: 3}
+  - {fileID: -7966122808907475578, guid: c6a1784501a212e40a1f17228a679cfc, type: 3}
+  - {fileID: -7627790719941073821, guid: c6a1784501a212e40a1f17228a679cfc, type: 3}
+  - {fileID: 1637393500385726549, guid: c6a1784501a212e40a1f17228a679cfc, type: 3}
+  - {fileID: -2146018707295995305, guid: c6a1784501a212e40a1f17228a679cfc, type: 3}
+  - {fileID: 6964843733852807768, guid: c6a1784501a212e40a1f17228a679cfc, type: 3}
+  - {fileID: -5060639378671490201, guid: c6a1784501a212e40a1f17228a679cfc, type: 3}
+  m_MinSpeed: 1
+  m_MaxSpeed: 1
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0
+  m_TileAnimationFlags: 0

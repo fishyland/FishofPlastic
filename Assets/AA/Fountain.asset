@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
-  m_Name: Lamp
+  m_Name: Fountain
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: 3501944331499938099, guid: 0888f663769335e4fb1780b16bbb65ae, type: 3}
-  - {fileID: -118333722637655027, guid: 0888f663769335e4fb1780b16bbb65ae, type: 3}
-  - {fileID: -2831352962080143613, guid: 0888f663769335e4fb1780b16bbb65ae, type: 3}
-  - {fileID: 2438619598741876768, guid: 0888f663769335e4fb1780b16bbb65ae, type: 3}
+  - {fileID: 7368216809000924897, guid: 598979c173d62cf4a8f84b75300095fd, type: 3}
+  - {fileID: -1331911475, guid: 598979c173d62cf4a8f84b75300095fd, type: 3}
+  - {fileID: -29491857, guid: 598979c173d62cf4a8f84b75300095fd, type: 3}
+  - {fileID: -230887793, guid: 598979c173d62cf4a8f84b75300095fd, type: 3}
+  - {fileID: 1702940945, guid: 598979c173d62cf4a8f84b75300095fd, type: 3}
+  - {fileID: 571861926, guid: 598979c173d62cf4a8f84b75300095fd, type: 3}
   m_MinSpeed: 1
   m_MaxSpeed: 1
   m_AnimationStartTime: 0
