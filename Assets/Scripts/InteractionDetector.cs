@@ -22,6 +22,7 @@ public class InteractionDetector : MonoBehaviour
         {
             interactableInRange = interactable;
             interactionIcon.SetActive(true);
+            AudioManager.Play("InteractBubble");
         }
     }
 

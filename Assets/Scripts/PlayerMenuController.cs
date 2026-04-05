@@ -14,7 +14,12 @@ public class PlayerMenuController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Tab))
         {
+            if(!menuCanvas.activeSelf && PauseController.IsGamePaused)
+            {
+                return;
+            }
             menuCanvas.SetActive(!menuCanvas.activeSelf); //what the menu currently isnt
+            PauseController.SetPause(menuCanvas.activeSelf);
         }
     }
 }

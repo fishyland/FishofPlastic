@@ -75,6 +75,8 @@ public class NPC : MonoBehaviour, IInteractable
         foreach(char letter in dialogueData.dialogueLines[dialogueIndex])
         {
             dialogueText.text += letter;
+            AudioManager.PlayVoice(dialogueData.voiceSound,dialogueData.voicePitch);
+            //SoundEffectManager.PlayVoice(dialogueData.voiceSound,dialogueData.voicePitch);
             yield return new WaitForSeconds(dialogueData.typingSpeed);
         }
 

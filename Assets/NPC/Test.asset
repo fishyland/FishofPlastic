@@ -15,10 +15,10 @@ MonoBehaviour:
   npcName: Coworker
   npcPortrait: {fileID: 3277670875376260617, guid: bc0e0c25ed25e374aa2a812bc153448a, type: 3}
   dialogueLines:
-  - last night was craaazyyyy
-  - your kick was so cool!
+  - Last night's session was like no other.
+  - You've GOT to teach me that kick sometime!
   autoProgressLines: 0100
   autoProgressDelay: 1.5
   typingSpeed: 0.05
-  voiceSound: {fileID: 8300000, guid: a15b040b69a2c274eb53e9782947c5a3, type: 3}
-  voicePitch: 1
+  voiceSound: {fileID: 8300000, guid: fd46c43547d7bc041b4d729c8891c760, type: 3}
+  voicePitch: 0.8

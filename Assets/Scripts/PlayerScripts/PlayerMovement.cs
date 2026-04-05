@@ -37,7 +37,14 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(PauseController.IsGamePaused)
+        {
+            rb.linearVelocity = Vector2.zero;
+            animator.SetBool("isWalking", false);
+            return;
+        }
         rb.linearVelocity = moveInput * moveSpeed;
+        animator.SetBool("isWalking", rb.linearVelocity.magnitude > 0);
         horizInput = Input.GetAxisRaw("Horizontal");
 
      if (spriteRenderer != null)
@@ -56,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical");
 
 
-        animator.SetBool("isWalking", true);
+        
 
         if((moveX == 0 && moveY == 0) && (moveInput.x != 0 || moveInput.y !=0))
         {

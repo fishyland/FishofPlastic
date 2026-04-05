@@ -6,7 +6,10 @@ using UnityEngine.UI;
 public class AudioManager : MonoBehaviour
 {
    private static AudioManager Instance;
+
    private static AudioSource audioSource;
+   private static AudioSource randomPitchAudioSource;
+   private static AudioSource voiceAudioSource;
    private static SoundEffectLibrary soundEffectLibrary;
    [SerializeField] private Slider sfxSlider;
 
@@ -15,7 +18,10 @@ public class AudioManager : MonoBehaviour
         if(Instance == null)
         {
             Instance = this;
-            audioSource = GetComponent<AudioSource>();
+            AudioSource[] audioSources = GetComponents<AudioSource>();
+            audioSource = audioSources[0];
+            randomPitchAudioSource = audioSources[1];
+            voiceAudioSource = audioSources[2];
             soundEffectLibrary = GetComponent<SoundEffectLibrary>();
             DontDestroyOnLoad(gameObject);
         }
@@ -25,13 +31,28 @@ public class AudioManager : MonoBehaviour
         }
     }
     
-    public static void Play(string soundName)
+    public static void Play(string soundName, bool randomPitch = false)
     {
         AudioClip audioClip = soundEffectLibrary.GetRandomClip(soundName);
         if(audioClip != null)
         {
-            audioSource.PlayOneShot(audioClip);
+            if(randomPitch)
+            {
+           
+            randomPitchAudioSource.pitch = Random.Range(1f,1.5f);
+            randomPitchAudioSource.PlayOneShot(audioClip);
+            }
+            else
+            {
+                audioSource.PlayOneShot(audioClip);
+            }
         }
+    }
+
+    public static void PlayVoice(AudioClip audioClip, float pitch =1f)
+    {
+        voiceAudioSource.pitch = pitch;
+        voiceAudioSource.PlayOneShot(audioClip);
     }
 
     void Start()
@@ -42,6 +63,8 @@ public class AudioManager : MonoBehaviour
     public static void SetVolume(float volume)
     {
         audioSource.volume = volume;
+        randomPitchAudioSource.volume = volume;
+        voiceAudioSource.volume = volume;
     }
     public void OnValueChanged()
     {

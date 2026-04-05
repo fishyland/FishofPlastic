@@ -11,10 +11,18 @@ public class LevelMove : MonoBehaviour
 
         if(collision.gameObject.CompareTag("Player"))
         {
+            
             print("Switching scene to " + sceneBuildIndex);
-            SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
+            FadeTransition();
+           
         }
 
     }
-  
+    async void FadeTransition(GameObject player)
+    {
+        await ScreenFader.Instance.FadeOut();
+         SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
+        await ScreenFader.Instance.FadeIn();
+    }
+
 }
