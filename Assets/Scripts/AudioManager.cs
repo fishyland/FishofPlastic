@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
    private static AudioSource audioSource;
    private static AudioSource randomPitchAudioSource;
    private static AudioSource voiceAudioSource;
+   public AudioClip newMusicClip;
    private static SoundEffectLibrary soundEffectLibrary;
    [SerializeField] private Slider sfxSlider;
 
@@ -69,6 +70,13 @@ public class AudioManager : MonoBehaviour
     public void OnValueChanged()
     {
         SetVolume(sfxSlider.value);
+    }
+
+    public void ChangeMusic(AudioClip music)
+    {
+        audioSource.Stop();
+        audioSource.clip = music;
+        audioSource.Play();
     }
 }
 
