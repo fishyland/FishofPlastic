@@ -51,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (horizInput > 0.1f) spriteRenderer.flipX = false;
             else if (horizInput < -0.1f) spriteRenderer.flipX = true;
+            
         }
         OnAttack();
 
