@@ -11,11 +11,6 @@ public bool IsAtWall()
     {
         return Physics2D.Raycast(wallCheck.position, Vector2.down, config.wallCheckDistance, config.wallLayer);
     }
-public bool BackAtWall()
-    {
-        return Physics2D.Raycast(wallCheck.position, Vector2.down, config.wallCheckDistance, config.wallLayer);
-  
-    }
 
     public Transform GetChaseTarget()
     {
