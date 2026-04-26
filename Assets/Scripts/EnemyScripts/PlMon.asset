@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnThreshold: 1.5
   patrolSpeed: 2
-  groundCheckDistance: 0.7
+  groundCheckDistance: 0.68
   wallCheckDistance: 0.5
   wallLayer:
     serializedVersion: 2
@@ -27,7 +27,7 @@ MonoBehaviour:
   meleeRange: 1.2
   meleeDamage: 1
   meleeCooldown: 3
-  health: 12
-  maxHealth: 12
+  health: 24
+  maxHealth: 24
   knockbackDuration: 0.2
-  knockbackForce: 20
+  knockbackForce: 10

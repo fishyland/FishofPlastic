@@ -10,7 +10,7 @@ public class ScreenFader : MonoBehaviour
 
     public void Start()
     {
-        StartCoroutine(FadeOut());
+//        StartCoroutine(FadeOut());
     }
   public void FadeAndLoad(string sceneName, float duration)
     {
